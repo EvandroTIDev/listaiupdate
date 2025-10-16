@@ -1,6 +1,6 @@
-# LISTAI - Sistema de Atualização
+# LISTAI - Sistema de Atualização com Múltiplas Arquiteturas
 
-Este repositório contém os arquivos necessários para o sistema de atualização automática do aplicativo LISTAI.
+Este repositório contém os arquivos necessários para o sistema de atualização automática do aplicativo LISTAI com suporte a múltiplas arquiteturas de processador.
 
 ## 📁 Estrutura
 
@@ -9,25 +9,37 @@ listaiupdate/
 ├── api/
 │   └── check-update.json    # API de verificação de atualizações
 ├── downloads/
-│   └── app.apk             # APK do aplicativo (adicionar manualmente)
+│   ├── arm64-v8a/
+│   │   └── app.apk         # APK para ARM 64-bit (95% dos dispositivos)
+│   ├── armeabi-v7a/
+│   │   └── app.apk         # APK para ARM 32-bit (dispositivos antigos)
+│   ├── x86_64/
+│   │   └── app.apk         # APK para x86 64-bit (emuladores)
+│   └── x86/
+│       └── app.apk         # APK para x86 32-bit (emuladores)
 └── README.md               # Este arquivo
 ```
 
 ## 🔧 Como Funciona
 
-1. **Verificação**: O app consulta `api/check-update.json` para verificar se há atualizações
-2. **Download**: Se houver atualização, baixa o APK de `downloads/app.apk`
-3. **Instalação**: Instala automaticamente o novo APK
+1. **Detecção**: O app detecta automaticamente a arquitetura do processador
+2. **Verificação**: Consulta `api/check-update.json` para verificar se há atualizações
+3. **Download**: Baixa o APK específico para a arquitetura detectada
+4. **Instalação**: Instala automaticamente o novo APK otimizado
 
 ## 📝 Como Enviar Atualizações
 
-### 1. Compilar Nova Versão
+### 1. Compilar APKs por Arquitetura
 ```bash
-flutter build apk --release
+# Windows
+build_apks_by_architecture.bat
+
+# Linux/Mac
+./build_apks_by_architecture.sh
 ```
 
 ### 2. Atualizar Arquivos
-- **APK**: Adicione o novo APK em `downloads/app.apk` via interface do GitHub (devido ao limite de 100MB)
+- **APKs**: Faça upload dos APKs nas pastas correspondentes de arquitetura
 - **Configuração**: Atualize `api/check-update.json` com a nova versão
 
 ### 3. Exemplo de Atualização
