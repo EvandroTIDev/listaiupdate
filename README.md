@@ -46,7 +46,7 @@ build_apks_by_architecture.bat
 ```json
 {
   "hasUpdate": true,
-  "currentVersion": "2.5.0",
+  "currentVersion": "2.6.0",
   "latestVersion": "2.6.0",
   "downloadUrl": "https://evandrotidev.github.io/listaiupdate/downloads/app.apk",
   "releaseNotes": "• Correções de bugs\n• Novas funcionalidades\n• Melhorias de performance",

@@ -15,7 +15,7 @@ Vá para: https://github.com/EvandroTIDev/listaiupdate
 ### 3. Faça Upload do APK
 - Arraste o arquivo `app-release.apk` (de `D:\Projetos\Android\listai-master\build\app\outputs\flutter-apk\`)
 - **Renomeie** para `app.apk`
-- Adicione mensagem de commit: "Adicionar APK versão 2.5.0"
+- Adicione mensagem de commit: "Adicionar APK versão 2.6.0"
 - Clique em "Commit changes"
 
 ### 4. Verificar se Funcionou
